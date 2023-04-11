@@ -1,0 +1,33 @@
+<div mat-dialog-title>
+  <h1>To-Do Form</h1>
+</div>
+
+<div mat-dialog-content class="form">
+  <div class="row">
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input matInput type="text" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Task</mat-label>
+      <input matInput type="text" />
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <mat-form-field appearance="outline">
+      <mat-label>Date</mat-label>
+      <input matInput [matDatepicker]="picker" />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button>Cancel</button>
+  <button mat-raised-button color="primary">Save</button>
+</div>
