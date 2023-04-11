@@ -14,8 +14,8 @@
     </mat-form-field>
   </div>
 
-  <div class="row">
-    <mat-form-field appearance="outline">
+  <div style="display: flex; flex-direction: column">
+    <mat-form-field appearance="outline" style="width: 100%">
       <mat-label>Date</mat-label>
       <input matInput [matDatepicker]="picker" />
       <mat-hint>MM/DD/YYYY</mat-hint>
@@ -25,8 +25,18 @@
       ></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Type</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let category of categories" [value]="category">{{
+          category
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
   </div>
 </div>
+
 <div mat-dialog-actions>
   <button mat-raised-button>Cancel</button>
   <button mat-raised-button color="primary">Save</button>

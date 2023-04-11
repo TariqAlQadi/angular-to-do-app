@@ -13,6 +13,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
 
 import { ToDoAddEditComponent } from './to-do-add-edit/to-do-add-edit.component';
 
@@ -30,6 +31,7 @@ import { ToDoAddEditComponent } from './to-do-add-edit/to-do-add-edit.component'
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
