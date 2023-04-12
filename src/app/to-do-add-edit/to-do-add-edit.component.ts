@@ -31,7 +31,7 @@ export class ToDoAddEditComponent {
   }
   onFormSubmit() {
     if (this.toDoForm.valid) {
-      this._toDoService.AddToDo(this.toDoForm.value).subscribe({
+      this._toDoService.addToDo(this.toDoForm.value).subscribe({
         next: (val: any) => {
           alert('todo added succes');
           this._dialogRef.close(); //close dialoghere
