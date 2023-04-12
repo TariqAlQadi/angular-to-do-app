@@ -25,7 +25,7 @@ export class ToDoAddEditComponent {
   }
   onFormSubmit() {
     if (this.toDoForm.valid) {
-      console.log(this);
+      console.log('valid');
     }
   }
 }
