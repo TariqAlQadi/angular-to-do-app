@@ -24,7 +24,9 @@ export class AppComponent implements OnInit {
   getToDos() {
     //returns observable
     this._toDoService.getToDos().subscribe({
-      next: (res) => {},
+      next: (res) => {
+        console.log(res);
+      },
       error: (error: any) => {
         console.error(error);
       },
