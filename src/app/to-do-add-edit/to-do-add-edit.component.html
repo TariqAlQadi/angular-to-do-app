@@ -2,42 +2,44 @@
   <h1>To-Do Form</h1>
 </div>
 
-<div mat-dialog-content class="form">
-  <div class="row">
-    <mat-form-field appearance="outline">
-      <mat-label>Name</mat-label>
-      <input matInput type="text" />
-    </mat-form-field>
-    <mat-form-field appearance="outline">
-      <mat-label>Task</mat-label>
-      <input matInput type="text" />
-    </mat-form-field>
+<form [formGroup]="toDoForm" (ngSubmit)="onFormSubmit()">
+  <div mat-dialog-content class="form">
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput type="text" formControlName="name" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Task</mat-label>
+        <input matInput type="text" formControlName="task" />
+      </mat-form-field>
+    </div>
+
+    <div style="display: flex; flex-direction: column">
+      <mat-form-field appearance="outline" style="width: 100%">
+        <mat-label>Date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="date" />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Category</mat-label>
+        <mat-select formControlName="category">
+          <mat-option *ngFor="let category of categories" [value]="category">{{
+            category
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
   </div>
 
-  <div style="display: flex; flex-direction: column">
-    <mat-form-field appearance="outline" style="width: 100%">
-      <mat-label>Date</mat-label>
-      <input matInput [matDatepicker]="picker" />
-      <mat-hint>MM/DD/YYYY</mat-hint>
-      <mat-datepicker-toggle
-        matIconSuffix
-        [for]="picker"
-      ></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-
-    <mat-form-field appearance="outline">
-      <mat-label>Type</mat-label>
-      <mat-select>
-        <mat-option *ngFor="let category of categories" [value]="category">{{
-          category
-        }}</mat-option>
-      </mat-select>
-    </mat-form-field>
+  <div mat-dialog-actions>
+    <button mat-raised-button>Cancel</button>
+    <button mat-raised-button type="submit" color="primary">Save</button>
   </div>
-</div>
-
-<div mat-dialog-actions>
-  <button mat-raised-button>Cancel</button>
-  <button mat-raised-button color="primary">Save</button>
-</div>
+</form>
