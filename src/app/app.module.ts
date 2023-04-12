@@ -17,6 +17,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { ToDoAddEditComponent } from './to-do-add-edit/to-do-add-edit.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, ToDoAddEditComponent],
@@ -34,6 +35,7 @@ import { ToDoAddEditComponent } from './to-do-add-edit/to-do-add-edit.component'
     MatNativeDateModule,
     MatSelectModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

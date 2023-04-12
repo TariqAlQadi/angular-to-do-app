@@ -1,19 +1,18 @@
 {
-  "posts": [
+  "toDo": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "name": "tariq",
+      "task": "",
+      "date": "",
+      "category": "",
+      "id": 1
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "name": "Tariq",
+      "task": "Cleaning",
+      "date": "2023-04-19T22:00:00.000Z",
+      "category": "Cleaning",
+      "id": 2
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }
