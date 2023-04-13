@@ -19,6 +19,8 @@ import { MatTableModule } from '@angular/material/table';
 
 import { ToDoAddEditComponent } from './to-do-add-edit/to-do-add-edit.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [AppComponent, ToDoAddEditComponent],
@@ -38,6 +40,8 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule,
     MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

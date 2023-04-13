@@ -1,18 +1,25 @@
 {
   "toDo": [
     {
-      "name": "tariq",
-      "task": "",
-      "date": "",
-      "category": "",
-      "id": 1
-    },
-    {
       "name": "Tariq",
       "task": "Cleaning",
       "date": "2023-04-19T22:00:00.000Z",
       "category": "Cleaning",
       "id": 2
+    },
+    {
+      "name": "qwef",
+      "task": "qwr",
+      "date": "2023-04-06T22:00:00.000Z",
+      "category": "Cleaning",
+      "id": 3
+    },
+    {
+      "name": "wqf",
+      "task": "eqf",
+      "date": "2023-04-10T22:00:00.000Z",
+      "category": "Buying",
+      "id": 4
     }
   ]
 }
