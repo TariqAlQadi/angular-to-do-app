@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ToDoService } from '../services/to-do.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { CoreService } from '../core/core.service';
 
 @Component({
   selector: 'app-to-do-add-edit',
@@ -19,7 +20,8 @@ export class ToDoAddEditComponent implements OnInit {
     private _fb: FormBuilder,
     private _toDoService: ToDoService,
     private _dialogRef: MatDialogRef<ToDoAddEditComponent>, //to close dialog window
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private _coreService: CoreService
   ) {
     //define formGroup
     this.toDoForm = this._fb.group({
@@ -42,7 +44,7 @@ export class ToDoAddEditComponent implements OnInit {
           .updateToDo(this.data.id, this.toDoForm.value)
           .subscribe({
             next: (val: any) => {
-              alert('updated todo succesfully');
+              this._coreService.openSnackBar('Updated To-Do succesfully!');
               this._dialogRef.close(true); //close dialoghere
             },
             error: console.log,
@@ -50,7 +52,7 @@ export class ToDoAddEditComponent implements OnInit {
       } else {
         this._toDoService.addToDo(this.toDoForm.value).subscribe({
           next: (val: any) => {
-            alert('added todo succesfully');
+            this._coreService.openSnackBar('Added To-Do succesfully1');
             this._dialogRef.close(true); //close dialoghere
           },
           error: console.log,

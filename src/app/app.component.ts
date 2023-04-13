@@ -6,6 +6,7 @@ import { ToDoService } from './services/to-do.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { CoreService } from './core/core.service';
 
 @Component({
   selector: 'app-root',
@@ -26,7 +27,11 @@ export class AppComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private _dialog: MatDialog, private _toDoService: ToDoService) {}
+  constructor(
+    private _dialog: MatDialog,
+    private _toDoService: ToDoService,
+    private _coreService: CoreService
+  ) {}
 
   ngOnInit(): void {
     this.getToDos();
@@ -49,7 +54,7 @@ export class AppComponent implements OnInit {
     this._toDoService.deleteToDo(id).subscribe({
       next: (res) => {
         this.getToDos();
-        alert('to do deleted!');
+        this._coreService.openSnackBar('To-Do deleted!', 'done');
       },
       error: console.log,
     });
