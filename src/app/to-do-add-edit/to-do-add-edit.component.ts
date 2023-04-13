@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ToDoService } from '../services/to-do.service';
-import { DialogRef } from '@angular/cdk/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-to-do-add-edit',
@@ -18,7 +18,7 @@ export class ToDoAddEditComponent {
   constructor(
     private _fb: FormBuilder,
     private _toDoService: ToDoService,
-    private _dialogRef: DialogRef<ToDoAddEditComponent> //to close dialog window
+    private _dialogRef: MatDialogRef<ToDoAddEditComponent> //to close dialog window
   ) {
     //define formGroup
     this.toDoForm = this._fb.group({
@@ -34,7 +34,7 @@ export class ToDoAddEditComponent {
       this._toDoService.addToDo(this.toDoForm.value).subscribe({
         next: (val: any) => {
           alert('todo added succes');
-          this._dialogRef.close(); //close dialoghere
+          this._dialogRef.close(true); //close dialoghere
         },
         error: (error: any) => {
           console.error(error);

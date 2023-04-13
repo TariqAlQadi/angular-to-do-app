@@ -13,7 +13,14 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'name', 'task', 'date', 'category'];
+  displayedColumns: string[] = [
+    'id',
+    'name',
+    'task',
+    'date',
+    'category',
+    'action',
+  ];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -26,7 +33,14 @@ export class AppComponent implements OnInit {
   }
 
   openAddEditToDoForm() {
-    this._dialog.open(ToDoAddEditComponent);
+    const dialogRef = this._dialog.open(ToDoAddEditComponent);
+    dialogRef.afterClosed().subscribe({
+      next: (val) => {
+        if (val) {
+          this.getToDos();
+        }
+      },
+    });
   }
 
   getToDos() {
@@ -41,6 +55,16 @@ export class AppComponent implements OnInit {
       error: (error: any) => {
         console.error(error);
       },
+    });
+  }
+
+  deleteToDo(id: number) {
+    this._toDoService.deleteToDo(id).subscribe({
+      next: (res) => {
+        this.getToDos();
+        alert('to do deleted!');
+      },
+      error: console.log,
     });
   }
 
