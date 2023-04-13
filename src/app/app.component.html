@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
   <span>To-Do App</span>
-  <button mat-raised-button (click)="openAddEditToDoForm()">ADD TO-DO</button>
+  <button mat-raised-button (click)="openAddToDoForm()">ADD TO-DO</button>
 </mat-toolbar>
 
 <div class="table">
@@ -51,7 +51,11 @@
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
         <td mat-cell *matCellDef="let row">
-          <button mat-icon-button color="primary">
+          <button
+            mat-icon-button
+            color="primary"
+            (click)="openEditToDoForm(row)"
+          >
             <mat-icon>edit</mat-icon>
           </button>
           <button mat-icon-button color="warn" (click)="deleteToDo(row.id)">

@@ -32,17 +32,6 @@ export class AppComponent implements OnInit {
     this.getToDos();
   }
 
-  openAddEditToDoForm() {
-    const dialogRef = this._dialog.open(ToDoAddEditComponent);
-    dialogRef.afterClosed().subscribe({
-      next: (val) => {
-        if (val) {
-          this.getToDos();
-        }
-      },
-    });
-  }
-
   getToDos() {
     //returns observable
     this._toDoService.getToDos().subscribe({
@@ -52,9 +41,7 @@ export class AppComponent implements OnInit {
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
       },
-      error: (error: any) => {
-        console.error(error);
-      },
+      error: console.log,
     });
   }
 
@@ -75,5 +62,29 @@ export class AppComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  openAddToDoForm() {
+    const dialogRef = this._dialog.open(ToDoAddEditComponent);
+    //for updating the table after post request
+    dialogRef.afterClosed().subscribe({
+      next: (val) => {
+        if (val) {
+          this.getToDos();
+        }
+      },
+    });
+  }
+
+  openEditToDoForm(data: any) {
+    const dialogRef = this._dialog.open(ToDoAddEditComponent, { data });
+    //for updating the table after put request
+    dialogRef.afterClosed().subscribe({
+      next: (val) => {
+        if (val) {
+          this.getToDos();
+        }
+      },
+    });
   }
 }
