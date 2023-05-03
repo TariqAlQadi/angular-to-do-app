@@ -8,10 +8,39 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { CoreService } from './core/core.service';
 
+import {
+  trigger,
+  state,
+  style,
+  transition,
+  animate,
+} from '@angular/animations';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  animations: [
+    [
+      trigger('transitionMessages', [
+        state(
+          'show',
+          style({
+            opacity: 1,
+            transform: 'translateY(0)',
+          })
+        ),
+        state(
+          'hide',
+          style({
+            opacity: 0,
+            transform: 'translateY(-100%)',
+          })
+        ),
+        transition('show <=> hide', animate('300ms ease-in-out')),
+      ]),
+    ],
+  ],
 })
 export class AppComponent implements OnInit {
   displayedColumns: string[] = [
