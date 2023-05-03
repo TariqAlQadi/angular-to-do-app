@@ -8,9 +8,8 @@ describe('ToDoAddEditComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ToDoAddEditComponent ]
-    })
-    .compileComponents();
+      declarations: [ToDoAddEditComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ToDoAddEditComponent);
     component = fixture.componentInstance;
