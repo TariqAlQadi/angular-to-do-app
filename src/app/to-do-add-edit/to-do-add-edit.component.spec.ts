@@ -12,6 +12,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('ToDoAddEditComponent', () => {
   let component: ToDoAddEditComponent;
@@ -31,6 +32,7 @@ describe('ToDoAddEditComponent', () => {
         MatNativeDateModule,
         MatSelectModule,
         MatInputModule,
+        BrowserAnimationsModule,
       ],
       providers: [
         CoreService,
