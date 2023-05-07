@@ -6,6 +6,13 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CoreService } from '../core/core.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { MatInputModule } from '@angular/material/input';
 
 describe('ToDoAddEditComponent', () => {
   let component: ToDoAddEditComponent;
@@ -14,16 +21,25 @@ describe('ToDoAddEditComponent', () => {
 
   let core: CoreService;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  beforeEach(() => {
+    TestBed.configureTestingModule({
       declarations: [ToDoAddEditComponent],
-      imports: [HttpClientModule, MatSnackBarModule],
+      imports: [
+        HttpClientModule,
+        MatSnackBarModule,
+        MatFormFieldModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatSelectModule,
+        MatInputModule,
+      ],
       providers: [
         CoreService,
         MatSnackBar,
         { provide: MatDialogRef, useValue: matDialogRef },
         { provide: MAT_DIALOG_DATA, useValue: {} },
       ],
+      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
 
     core = TestBed.inject(CoreService);
