@@ -2,8 +2,6 @@ import { TestBed } from '@angular/core/testing';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ToDoService } from './to-do.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { observeNotification } from 'rxjs/internal/Notification';
 
 describe('ToDoService', () => {
   let httpSpy: jasmine.SpyObj<HttpClient>;
@@ -34,7 +32,7 @@ describe('ToDoService', () => {
           name: 'foo',
           task: 'bar',
         };
-        const result = testSubject.addToDo(dataMock);
+        testSubject.addToDo(dataMock);
         expect(httpSpy.post).toHaveBeenCalledOnceWith(
           'http://localhost:3000/toDo',
           dataMock
@@ -44,7 +42,7 @@ describe('ToDoService', () => {
 
     describe('getToDos', () => {
       it('should send a get request', () => {
-        const result = testSubject.getToDos();
+        testSubject.getToDos();
         expect(httpSpy.get).toHaveBeenCalledOnceWith(
           'http://localhost:3000/toDo'
         );
@@ -54,7 +52,7 @@ describe('ToDoService', () => {
     describe('deleteToDo', () => {
       it('should send a delete request', () => {
         const idMock = 42;
-        const result = testSubject.deleteToDo(idMock);
+        testSubject.deleteToDo(idMock);
         expect(httpSpy.delete).toHaveBeenCalledOnceWith(
           `http://localhost:3000/toDo/${idMock}`
         );
@@ -68,7 +66,7 @@ describe('ToDoService', () => {
           name: 'foo',
           task: 'bar',
         };
-        const result = testSubject.updateToDo(dataMock.id, dataMock);
+        testSubject.updateToDo(dataMock.id, dataMock);
         expect(httpSpy.put).toHaveBeenCalledOnceWith(
           `http://localhost:3000/toDo/${dataMock.id}`,
           dataMock
