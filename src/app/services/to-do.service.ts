@@ -8,11 +8,11 @@ import { Observable } from 'rxjs';
 export class ToDoService {
   constructor(private _http: HttpClient) {}
 
-  addToDo(data: any) {
+  addToDo(data: any): Observable<any> {
     return this._http.post('http://localhost:3000/toDo', data);
   }
 
-  getToDos() {
+  getToDos(): Observable<any> {
     return this._http.get('http://localhost:3000/toDo');
   }
 
