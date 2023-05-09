@@ -12,7 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('AppComponent', () => {
-  let component: AppComponent;
+  let testSubject: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
   let dialog: MatDialog;
 
@@ -36,7 +36,7 @@ describe('AppComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(AppComponent);
-    component = fixture.componentInstance;
+    testSubject = fixture.componentInstance;
     dialog = TestBed.inject(MatDialog);
     fixture.detectChanges();
   });

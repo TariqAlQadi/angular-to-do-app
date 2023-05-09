@@ -3,16 +3,18 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { CoreService } from './core.service';
 
 describe('CoreService', () => {
-  let service: CoreService;
+  let testSubject: CoreService;
+  let snackSpy: jasmine.SpyObj<any>;
 
   beforeEach(() => {
+    snackSpy = jasmine.createSpyObj('snackBar', ['open']);
     TestBed.configureTestingModule({
       imports: [MatSnackBarModule],
     });
-    service = TestBed.inject(CoreService);
+    testSubject = TestBed.inject(CoreService);
   });
 
   it('should be created', () => {
-    expect(service).toBeTruthy();
+    expect(testSubject).toBeTruthy();
   });
 });

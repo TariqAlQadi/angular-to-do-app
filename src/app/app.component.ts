@@ -38,11 +38,9 @@ export class AppComponent implements OnInit {
   }
 
   getToDos() {
-    //returns observable
     this._toDoService.getToDos().subscribe({
       next: (res: any) => {
         this.dataSource = new MatTableDataSource(res);
-        console.log(this.dataSource);
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
       },
